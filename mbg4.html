@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persetujuan Orang Tua - SD SMP IT ALKINDI PEKANBARU</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        form {
+            margin-bottom: 40px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+        }
+        .checkbox-label input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .daftar {
+            margin-top: 50px;
+        }
+        .daftar h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        SD SMP IT ALKINDI PEKANBARU
+    </div>
+    <div class="container">
+        <h1>Formulir Persetujuan Orang Tua untuk Menerima Makanan Bergizi Gratis (MBG)</h1>
+        <p>Silakan isi formulir di bawah ini untuk memberikan persetujuan agar anak Anda menerima makanan bergizi gratis dari program sekolah/kegiatan terkait di SD SMP IT ALKINDI PEKANBARU.</p>
+        
+        <form id="consentForm" action="#" method="post">
+            <label for="nama_orang_tua">Nama Orang Tua/Wali:</label>
+            <input type="text" id="nama_orang_tua" name="nama_orang_tua" required>
+            
+            <label for="nama_murid">Nama Murid:</label>
+            <input type="text" id="nama_murid" name="nama_murid" required>
+            
+            <label for="kelas">Kelas:</label>
+            <input type="text" id="kelas" name="kelas" required>
+            
+            <label for="alamat">Alamat:</label>
+            <textarea id="alamat" name="alamat" rows="3" required></textarea>
+            
+            <label for="no_telepon">Nomor Telepon:</label>
+            <input type="tel" id="no_telepon" name="no_telepon" required>
+            
+            <label class="checkbox-label" for="persetujuan">
+                <input type="checkbox" id="persetujuan" name="persetujuan" required>
+                Saya memberikan persetujuan agar anak saya menerima makanan bergizi gratis dari program ini. Saya memahami bahwa makanan ini disediakan untuk mendukung kesehatan dan nutrisi anak.
+            </label>
+            
+            <label for="tanggal">Tanggal Pengisian:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+            
+            <button type="submit">Kirim Persetujuan</button>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+            Persetujuan berhasil dikirim! Data Anda telah ditambahkan ke daftar di bawah.
+        </div>
+        
+        <div class="daftar">
+            <h2>Daftar Orang Tua yang Telah Mengisi Persetujuan</h2>
+            <p>Berikut adalah daftar nama orang tua/wali yang telah mengisi formulir persetujuan. Daftar ini akan diperbarui secara berkala.</p>
+            <table id="consentTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Orang Tua/Wali</th>
+                        <th>Nama Murid</th>
+                        <th>Kelas</th>
+                        <th>Tanggal Pengisian</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data akan dimuat dari localStorage -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2026 SD SMP IT ALKINDI PEKANBARU. Semua hak dilindungi.
+    </div>
+
+    <script>
+        // Fungsi untuk memuat data dari localStorage dan menampilkan di tabel
+        function loadTable() {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Kosongkan tabel
+            const data = JSON.parse(localStorage.getItem('consentData')) || [];
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${item.nama_orang_tua}</td>
+                    <td>${item.nama_murid}</td>
+                    <td>${item.kelas}</td>
+                    <td>${item.tanggal}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Fungsi untuk menyimpan data ke localStorage
+        function saveData(formData) {
+            const data = JSON.parse(localStorage.getItem('consentData')) || [];
+            data.push(formData);
+            localStorage.setItem('consentData', JSON.stringify(data));
+        }
+
+        // Event listener untuk form submit
+        document.getElementById('consentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah reload halaman
+            
+            // Ambil data dari form
+            const formData = {
+                nama_orang_tua: document.getElementById('nama_orang_tua').value,
+                nama_murid: document.getElementById('nama_murid').value,
+                kelas: document.getElementById('kelas').value,
+                alamat: document.getElementById('alamat').value,
+                no_telepon: document.getElementById('no_telepon').value,
+                tanggal: document.getElementById('tanggal').value
+            };
+            
+            // Simpan data
+            saveData(formData);
+            
+            // Reset form
+            this.reset();
+            
+            // Tampilkan pesan sukses
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000); // Sembunyikan setelah 3 detik
+            
+            // Muat ulang tabel
+            loadTable();
+        });
+
+        // Muat tabel saat halaman dimuat
+        window.addEventListener('load', loadTable);
+    </script>
+</body>
+</html>
